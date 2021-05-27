@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F0F0F0;
+    font-family: 'Roboto';
+}
+
+.container-fluid{
+    padding: 0.5em 3em 0.2em;
+}
+
+.d-flex{
+    padding-left: 2em;
+}
+
+.d-flex input::placeholder{
+    color: #000000;
+    font-weight: 100;
+    opacity: 50%;
+}
+
+#logo{
+    width: 17em;
+}
+
+.content-nav{
+    display: flex;
+    align-items: center;
+}
+
+.content-nav label{
+    padding-right: 2em;
+}
+
+.content-nav img{
+    width: 4em;
+    height: 4em;
+    border-radius: 70px;
+}
+
+.droppudown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content hr{
+    margin: 0 0.2em;
+    border: 1px dashed black;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 8em;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.dropdown-content a{
+    color: black;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+.dropdown-content a:hover{
+    background-color: #ddd;
+}
+
+.droppudown:hover .dropdown-content{
+    display: block;
+}
+
+.droppudown:hover i{
+    filter: blur(0.1em);
+}
+
+.addbtn{
+    float: right;
+    margin: 0.9em 5em;
+}
+
+#add{
+    padding: 0.7em 3em;
+    outline: none;
+    background-color: rgba(0, 27, 125);
+}
+
+#add:hover{
+    background-color: #F0F0F0;
+    color: rgba(0, 27, 125);
+}
+
+.right{
+    margin-left: 1em;
+}
+
+.ubtn{
+    background-color: rgba(182, 162, 162, 0.2);
+    font-size: 21px;
+    width: 8em;
+    height: 1.8em;
+    border: none;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ubtn{
+    color: rgba(65, 59, 59, 0.2);
+    text-align: center;
+    
+}
+
+.radio-hidden{
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:checked + label {
+    color: black;
+    background-color: rgba(141, 128, 128, 0.2);
+    transition: 300ms;
+}
+
+.content{
+    margin: 1.5em 3em;
+    width: 92.5vw;
+    height: 67.5vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user{
+    margin: 0 2em 2em 0;
+    padding: 1em;
+    background-color: #FFFFFF;
+    width: 20.2vw;
+    height: 38vh;
+}
+
+.top{
+    text-align: center;
+    padding-bottom: 1em;
+    align-items: center;
+}
+
+.user img{
+    width: 12em;
+    height: 7em;
+}
+
+.bott{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bott button{
+    border: none;
+    width: 8vw;
+    height: 6vh;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#leftb{
+    background-color: rgba(0, 27, 125);
+}
+
+#leftb:hover{
+    background-color: rgb(2, 49, 219);
+}
+
+#rightb{
+    background-color: #FF0000;
+}
+
+#rightb:hover{
+    background-color: #d80404;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 27, 125);
+    color: white;
+}
+
+#stock-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+#stock-input, .input-box{
+    border: none;
+    border-bottom: 1px solid rgba(0, 27, 125);
+    outline: none;
+    width: 13em;
+}
+
+#stock-input:hover{
+    border-bottom: 1px solid rgb(79, 92, 138);
+}
+
+.addInput, .addInput-pic{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5em;
+    font-weight: bold;
+}
+
+.input-price{
+    border: none;
+    outline: none;
+}
+
+.harga{
+    border-bottom: 1px solid rgba(0, 27, 125);
+}
