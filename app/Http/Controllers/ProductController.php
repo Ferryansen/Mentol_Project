@@ -35,7 +35,7 @@ class ProductController extends Controller
 
     public function store(Request $request) {
         // return $request;
-        // dd($request);
+        dd($request->name);
         $path = $request->file('image')->store("public/product_img");
         Product::create([
             'category' => $request->category,
@@ -44,6 +44,7 @@ class ProductController extends Controller
             'stock' => $request->stock,
             'file' => $path
         ]);
+        // dd("tes");
         return redirect('/admin');
     }
 
