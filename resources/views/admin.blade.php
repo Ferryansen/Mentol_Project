@@ -14,14 +14,22 @@
     <section id="box">
         <nav class="navbar navbar-light">
             <div class="container-fluid">
-              <img id="logo" src="/asset/MentolLogo.png">
+                <img id="logo" src="/asset/MentolLogo.png">
               <div class="content-nav">
-                <label id="greetings"></label>
+                <label id="greetings">Hello, {{ Auth::user()->name }}</label>
                 <div class="droppudown">
                     <i class="fas fa-user-circle fa-4x" id="user-icon"></i>
                     <label id="arrowDown" for="user-icon"><i class="fas fa-caret-down"></i></label>
                     <div class="dropdown-content">
-                        <a href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
@@ -115,6 +123,6 @@
             @endforeach
         </div>
     </section>
-    <script src="/js/user.js"></script>
+    <!-- <script src="/js/user.js"></script> -->
 </body>
 </html>

@@ -56,6 +56,6 @@
             </form>
         </section>
 
-        <script src="/js/cart.js"></script>
+        <script src="asset('js/cart.js')"></script>
     </body>
 </html>

@@ -17,16 +17,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin','ProductController@index')->name('product.sets');
+Route::middleware('auth')->group(function() {
+    Route::middleware('admin')->group(function() {
+        Route::get('/admin','ProductController@index')->name('product.sets');
+    });
+    Route::get('/member', 'MemberController@index')->name('member.index');
 
-Route::prefix('/product')->group(function() {
-    // Route::get('/create','ProductController@create')->name('product.create');
-    Route::post('/create','ProductController@store')->name('product.store');
+    // Route::get('/cart', function() {
+    //     return view('cart');
+    // });
+    Route::prefix('/product')->group(function() {
 
-    Route::get('/{id}', 'ProductController@show')->name('product.show');
+    });
 
-    Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
-    Route::patch('/edit/{id}', 'ProductController@update')->name('product.update');
+    Route::prefix('/product')->group(function() {
+        // Route::get('/create','ProductController@create')->name('product.create');
+        Route::post('/create','ProductController@store')->name('product.store');
 
-    Route::delete('/delete/{id}', 'ProductController@delete')->name('product.delete');
+        Route::get('/{id}', 'ProductController@show')->name('product.show');
+
+        Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
+        Route::patch('/edit/{id}', 'ProductController@update')->name('product.update');
+
+        Route::delete('/delete/{id}', 'ProductController@delete')->name('product.delete');
+    });
 });
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
