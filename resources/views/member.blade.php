@@ -43,10 +43,13 @@
         </div>
         <div class="content">
             @foreach ($products as $product)
-            <?php $taken = 0; ?>
             <div class="user">
                 <div class="top">
-                    <img src="https://foto.wartaekonomi.co.id/files/arsip_foto_2020_08_28/danone-aqua_140327_big.jpg" alt="">
+                    @if ($product->file == null)
+                    <img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt="">
+                    @else
+                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                    @endif
                     <div class="labelProduct">{{ $product->name }}</div>
                     <h6>Price: {{ $product->price }}</h6>
                 </div>
@@ -73,9 +76,10 @@
                                     <input type="hidden" name="name" value="{{ $product->name }}">
                                     <input type="hidden" name="category" value="{{ $product->category }}">
                                     <input type="hidden" name="price" type="number" value="{{ $product->price }}">
+                                    <input name="image" type="hidden" accept="image/x-png, image/jpeg, image/jpg" value="{{ $product->file }}">
                                     <div class="modal-body" id="stock-body">
                                         <label>Quantity</label>
-                                        <input name="quantity" type="number" min="1" value="{{ $taken }}" id="stock-input">
+                                        <input name="quantity" type="number" min="1" max="{{ $product->stock }}" value="0" id="stock-input">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Add to cart</button>

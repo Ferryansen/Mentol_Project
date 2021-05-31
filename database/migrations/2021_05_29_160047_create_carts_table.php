@@ -20,6 +20,7 @@ class CreateCartsTable extends Migration
             $table->string('category');
             $table->integer('quantity');
             $table->integer('price');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

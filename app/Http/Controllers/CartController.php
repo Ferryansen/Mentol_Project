@@ -15,27 +15,17 @@ class CartController extends Controller
     }
 
     public function store(Request $request) {
+        // $path = $request->file('image')->store("public/cart_img");
         Cart::create([
             'productid' => $request->productid,
             'category' => $request->category,
             'name' => $request->name,
             'price' => $request->price,
             'quantity' => $request->quantity,
+            // 'file' => $path,
         ]);
-        // $id = $request->productid;
-        // return redirect()->route('cart.update', $id);
         return redirect('/member');
     }
-
-    // public function update(Request $request, $id){
-    //     $product = Product::find($id);
-    //     $product->update([
-    //         'stock' => $request->stockTaken,
-    //     ]);
-    //     dd($request);
-    //     $product->save();
-    //     return redirect('/member');
-    // }
 
     public function delete($id) {
         $cart = Cart::find($id);

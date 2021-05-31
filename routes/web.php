@@ -30,8 +30,6 @@ Route::middleware('auth')->group(function() {
     Route::prefix('/faktur')->group(function() {
         Route::post('/send', 'CartController@store')->name('cart.store');
 
-        Route::get('edit/{id}', 'CartController@update')->name('cart.update');
-
         Route::delete('/delete/{id}', 'CartController@delete')->name('cart.delete');
     });
 

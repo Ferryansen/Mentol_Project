@@ -17,7 +17,7 @@
         <nav class="cartNav">
             <a href="{{ route('member.index') }}" id="goback"><button>go back ?</button></a>
             <div class="title">
-                <h3 id="invoice">{{ $invoiceNumber }}</h3>
+                <h3 id="invoice">Invoice No. {{ $invoiceNumber }}</h3>
             </div>
         </nav>
         <?php $totalPrice = 0; ?>
@@ -25,7 +25,7 @@
             @foreach ($carts as $cart)
             <?php $subtotalPrice; ?>
             <div class="products">
-                <img src="https://foto.wartaekonomi.co.id/files/arsip_foto_2020_08_28/danone-aqua_140327_big.jpg">
+                <img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg">
                 <table>
                     <tr>
                         <td>{{ $cart->name }}</td>

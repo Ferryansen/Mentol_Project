@@ -84,7 +84,11 @@
             @foreach ($products as $product)
             <div class="user">
                 <div class="top">
-                    <a href="{{ route('product.show', $product->id) }}"><img src="https://foto.wartaekonomi.co.id/files/arsip_foto_2020_08_28/danone-aqua_140327_big.jpg" alt=""></a>
+                    @if ($product->file == null)
+                    <a href="{{ route('product.show', $product->id) }}"><img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt=""></a>
+                    @else
+                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                    @endif
                     <div class="labelProduct">{{ $product->name }}</div>
                     <h6>Stock: {{ $product->stock }}</h6>
                 </div>

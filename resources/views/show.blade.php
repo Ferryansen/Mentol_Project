@@ -14,7 +14,11 @@
     <section class="boxView">
         <div class="info">
             <div class="top">
-                <img src="https://foto.wartaekonomi.co.id/files/arsip_foto_2020_08_28/danone-aqua_140327_big.jpg" alt="">
+                @if ($product->file == null)
+                    <img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt="">
+                @else
+                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                @endif
             </div>
             <div class="middle">
                 <h3>{{ $product->name }}</h3>

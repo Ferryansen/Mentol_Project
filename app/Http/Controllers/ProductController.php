@@ -40,7 +40,8 @@ class ProductController extends Controller
             'category' => 'required|string',
             'name' => 'required|string|min:5|max:80',
             'price' => 'required|numeric',
-            'stock' => 'required|integer'
+            'stock' => 'required|integer',
+            // 'file' => 'nullable'
         ])->validate();
         // $path = $request->file('image')->store("public/product_img");
         Product::create([
@@ -48,7 +49,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'stock' => $request->stock,
-            // 'file' => $path
+            // 'file' => $path,
         ]);
         // dd("tes");
         return redirect('/admin');
