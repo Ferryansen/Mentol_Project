@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Mentol</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -44,8 +44,8 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
+            #logo{
+                width: 30em;
             }
 
             .links > a {
@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/member') }}">Back</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,18 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <img id="logo" src="/asset/MentolLogo.png">
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <h3>"Creating a better life for all of us"</h3>
                 </div>
             </div>
         </div>

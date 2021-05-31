@@ -18,25 +18,33 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function() {
+    Route::get('/member', 'MemberController@index')->name('member.index');
+    
+    Route::prefix('/order')->group(function() {
+        Route::post('/checkout', 'memberController@store')->name('member.order');
+    });
+
+
+    Route::get('/cart', 'CartController@index')->name('cart.faktur');
+    
+    Route::prefix('/faktur')->group(function() {
+        Route::post('/send', 'CartController@store')->name('cart.store');
+
+        Route::get('edit/{id}', 'CartController@update')->name('cart.update');
+
+        Route::delete('/delete/{id}', 'CartController@delete')->name('cart.delete');
+    });
+
+
     Route::middleware('admin')->group(function() {
         Route::get('/admin','ProductController@index')->name('product.sets');
     });
-    Route::get('/member', 'MemberController@index')->name('member.index');
-
-    // Route::get('/cart', function() {
-    //     return view('cart');
-    // });
-    Route::prefix('/product')->group(function() {
-
-    });
 
     Route::prefix('/product')->group(function() {
-        // Route::get('/create','ProductController@create')->name('product.create');
         Route::post('/create','ProductController@store')->name('product.store');
 
         Route::get('/{id}', 'ProductController@show')->name('product.show');
 
-        Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::patch('/edit/{id}', 'ProductController@update')->name('product.update');
 
         Route::delete('/delete/{id}', 'ProductController@delete')->name('product.delete');

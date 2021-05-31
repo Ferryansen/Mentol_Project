@@ -55,6 +55,7 @@ table{
     border-collapse: collapse;
     width: 50em;
     margin-right: 2em;
+    table-layout: fixed;
 }
 
 td, h5{

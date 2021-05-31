@@ -36,6 +36,12 @@ class ProductController extends Controller
     public function store(Request $request) {
         // return $request;
         // dd($request->file('image'));
+        $validate = \Validator::make($request->all(), [
+            'category' => 'required|string',
+            'name' => 'required|string|min:5|max:80',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer'
+        ])->validate();
         // $path = $request->file('image')->store("public/product_img");
         Product::create([
             'category' => $request->category,

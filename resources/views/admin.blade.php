@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Upload</button>
+                                <button type="submit" class="btn btn-primary">Add now</button>
                             </div>
                         </form>
                     </div>
@@ -104,10 +104,10 @@
                                 @method('PATCH')
                                     <div class="modal-body" id="stock-body">
                                         <label>Total Stock</label>
-                                        <input type="number" name="stock" min="0" value="0" id="stock-input">
+                                        <input type="number" name="stock" min="0" value="{{ $product->stock }}" id="stock-input">
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
                             </div>
