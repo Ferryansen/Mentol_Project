@@ -48,7 +48,7 @@
                     @if ($product->file == null)
                     <img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt="">
                     @else
-                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                    <img src="{{ asset('storage/'. $product->file) }}" alt="{{$product->file}}">
                     @endif
                     <div class="labelProduct">{{ $product->name }}</div>
                     <h6>Price: {{ $product->price }}</h6>
@@ -70,13 +70,13 @@
                                     <h6>Price: Rp{{ $product->price }}</h6>
                                     <h6>Stock available: {{ $product->stock }}</h6>
                                 </div>
-                                <form action="{{ route('cart.store') }}" method="POST">
+                                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="productid" value="{{ $product->id }}">
                                     <input type="hidden" name="name" value="{{ $product->name }}">
                                     <input type="hidden" name="category" value="{{ $product->category }}">
                                     <input type="hidden" name="price" type="number" value="{{ $product->price }}">
-                                    <input name="image" type="hidden" accept="image/x-png, image/jpeg, image/jpg" value="{{ $product->file }}">
+                                    <input name="image2" type="hidden" accept="image/x-png, image/jpeg, image/jpg" value="{{ $product->file }}">
                                     <div class="modal-body" id="stock-body">
                                         <label>Quantity</label>
                                         <input name="quantity" type="number" min="1" max="{{ $product->stock }}" value="0" id="stock-input">

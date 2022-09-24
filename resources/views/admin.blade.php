@@ -87,7 +87,7 @@
                     @if ($product->file == null)
                     <a href="{{ route('product.show', $product->id) }}"><img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt=""></a>
                     @else
-                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                    <a href="{{ route('product.show', $product->id) }}"><img src="{{ asset('storage/'.$product->file) }}" alt="{{ $product->file }}"></a>
                     @endif
                     <div class="labelProduct">{{ $product->name }}</div>
                     <h6>Stock: {{ $product->stock }}</h6>

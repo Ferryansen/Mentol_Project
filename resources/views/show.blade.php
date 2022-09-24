@@ -17,7 +17,7 @@
                 @if ($product->file == null)
                     <img src="https://library.kissclipart.com/20180921/yiq/kissclipart-material-manager-cartoon-clipart-inventory-managem-f4b1148679eb31cc.jpg" alt="">
                 @else
-                    <img src="{{ asset('storage/', $product->file) }}" alt="{{$product->file}}">
+                    <img src="{{ asset('storage/'. $product->file) }}" alt="{{$product->file}}">
                 @endif
             </div>
             <div class="middle">

@@ -13,26 +13,6 @@ class ProductController extends Controller
         return view('admin', compact('products'));
     }
 
-    // public function store(Request $request) {
-    //     $this->validate($request, [
-    //         'category' => 'required',
-    //         'name' => 'required',
-    //         'price' => 'required',
-    //         'stock' => 'required',
-    //     ]);
-
-    //     $emps = new Product;
-
-    //     $emps->category = $request->input('category');
-    //     $emps->name = $request->input('name');
-    //     $emps->price = $request->input('price');
-    //     $emps->stock = $request->input('stock');
-
-    //     $emps->save();
-    
-    //     return redirect('/admin');
-    // }
-
     public function store(Request $request) {
         // return $request;
         // dd($request->file('image'));
@@ -41,17 +21,17 @@ class ProductController extends Controller
             'name' => 'required|string|min:5|max:80',
             'price' => 'required|numeric',
             'stock' => 'required|integer',
-            // 'file' => 'nullable'
+            'file' => 'nullable'
         ])->validate();
-        // $path = $request->file('image')->store("public/product_img");
+        $path = $request->file('image')->store("productImages");
         Product::create([
             'category' => $request->category,
             'name' => $request->name,
             'price' => $request->price,
             'stock' => $request->stock,
-            // 'file' => $path,
+            'file' => $path,
         ]);
-        // dd("tes");
+        
         return redirect('/admin');
     }
 
